@@ -1,0 +1,396 @@
+{
+    "id": "modern-dev",
+    "name": "Modern Developer",
+    "description": "A sleek, modern portfolio template perfect for developers and tech professionals",
+    "version": "1.0.0",
+    "author": "Portfolio Builder",
+    "preview_image": "/static/templates/modern-dev-preview.jpg",
+    "categories": ["developer", "tech", "modern"],
+    "sections": [
+      {
+        "id": "hero",
+        "name": "Hero Section",
+        "required": true,
+        "fields": [
+          {
+            "name": "name",
+            "type": "text",
+            "required": true,
+            "placeholder": "Your Full Name"
+          },
+          {
+            "name": "title",
+            "type": "text",
+            "required": true,
+            "placeholder": "Your Professional Title"
+          },
+          {
+            "name": "bio",
+            "type": "textarea",
+            "required": false,
+            "placeholder": "Brief professional bio"
+          },
+          {
+            "name": "image",
+            "type": "image",
+            "required": false,
+            "placeholder": "Profile picture URL"
+          },
+          {
+            "name": "social_links",
+            "type": "object",
+            "fields": [
+              {
+                "name": "github",
+                "type": "url",
+                "placeholder": "GitHub profile URL"
+              },
+              {
+                "name": "linkedin",
+                "type": "url",
+                "placeholder": "LinkedIn profile URL"
+              },
+              {
+                "name": "twitter",
+                "type": "url",
+                "placeholder": "Twitter profile URL"
+              },
+              {
+                "name": "email",
+                "type": "email",
+                "placeholder": "Email address"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "about",
+        "name": "About Section",
+        "required": true,
+        "fields": [
+          {
+            "name": "description",
+            "type": "textarea",
+            "required": true,
+            "placeholder": "Detailed description about yourself"
+          },
+          {
+            "name": "skills",
+            "type": "array",
+            "required": false,
+            "placeholder": "Your technical skills"
+          },
+          {
+            "name": "interests",
+            "type": "array",
+            "required": false,
+            "placeholder": "Your interests and hobbies"
+          }
+        ]
+      },
+      {
+        "id": "projects",
+        "name": "Projects Section",
+        "required": false,
+        "fields": [
+          {
+            "name": "projects",
+            "type": "array",
+            "fields": [
+              {
+                "name": "title",
+                "type": "text",
+                "required": true,
+                "placeholder": "Project title"
+              },
+              {
+                "name": "description",
+                "type": "textarea",
+                "required": true,
+                "placeholder": "Project description"
+              },
+              {
+                "name": "image",
+                "type": "image",
+                "placeholder": "Project screenshot"
+              },
+              {
+                "name": "tech_stack",
+                "type": "array",
+                "placeholder": "Technologies used"
+              },
+              {
+                "name": "github_url",
+                "type": "url",
+                "placeholder": "GitHub repository URL"
+              },
+              {
+                "name": "live_url",
+                "type": "url",
+                "placeholder": "Live demo URL"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "experience",
+        "name": "Experience Section",
+        "required": false,
+        "fields": [
+          {
+            "name": "experience",
+            "type": "array",
+            "fields": [
+              {
+                "name": "title",
+                "type": "text",
+                "required": true,
+                "placeholder": "Job title"
+              },
+              {
+                "name": "company",
+                "type": "text",
+                "required": true,
+                "placeholder": "Company name"
+              },
+              {
+                "name": "period",
+                "type": "text",
+                "required": true,
+                "placeholder": "Employment period (e.g., 2020 - Present)"
+              },
+              {
+                "name": "description",
+                "type": "textarea",
+                "required": true,
+                "placeholder": "Job description and achievements"
+              },
+              {
+                "name": "technologies",
+                "type": "array",
+                "placeholder": "Technologies used in this role"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "education",
+        "name": "Education Section",
+        "required": false,
+        "fields": [
+          {
+            "name": "education",
+            "type": "array",
+            "fields": [
+              {
+                "name": "degree",
+                "type": "text",
+                "required": true,
+                "placeholder": "Degree name"
+              },
+              {
+                "name": "school",
+                "type": "text",
+                "required": true,
+                "placeholder": "School/University name"
+              },
+              {
+                "name": "period",
+                "type": "text",
+                "required": true,
+                "placeholder": "Study period"
+              },
+              {
+                "name": "description",
+                "type": "textarea",
+                "placeholder": "Additional details"
+              },
+              {
+                "name": "gpa",
+                "type": "text",
+                "placeholder": "GPA (optional)"
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id": "contact",
+        "name": "Contact Section",
+        "required": true,
+        "fields": [
+          {
+            "name": "email",
+            "type": "email",
+            "required": true,
+            "placeholder": "Contact email"
+          },
+          {
+            "name": "phone",
+            "type": "text",
+            "placeholder": "Phone number"
+          },
+          {
+            "name": "location",
+            "type": "text",
+            "placeholder": "Location (City, Country)"
+          },
+          {
+            "name": "social_links",
+            "type": "object",
+            "fields": [
+              {
+                "name": "github",
+                "type": "url",
+                "placeholder": "GitHub profile URL"
+              },
+              {
+                "name": "linkedin",
+                "type": "url",
+                "placeholder": "LinkedIn profile URL"
+              },
+              {
+                "name": "twitter",
+                "type": "url",
+                "placeholder": "Twitter profile URL"
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "customization": {
+      "colors": {
+        "primary": {
+          "name": "Primary Color",
+          "type": "color",
+          "default": "#c770f0",
+          "css_var": "--purple"
+        },
+        "secondary": {
+          "name": "Secondary Color",
+          "type": "color",
+          "default": "#623686",
+          "css_var": "--dark-purple"
+        },
+        "accent": {
+          "name": "Accent Color",
+          "type": "color",
+          "default": "#8a49a8",
+          "css_var": "--light-purple"
+        },
+        "background": {
+          "name": "Background Color",
+          "type": "color",
+          "default": "#0c0513",
+          "css_var": "--background-dark"
+        },
+        "text": {
+          "name": "Text Color",
+          "type": "color",
+          "default": "#ffffff",
+          "css_var": "--text-light"
+        }
+      },
+      "fonts": {
+        "primary": {
+          "name": "Primary Font",
+          "type": "select",
+          "options": [
+            { "value": "Raleway", "label": "Raleway (Default)" },
+            { "value": "Inter", "label": "Inter" },
+            { "value": "Poppins", "label": "Poppins" },
+            { "value": "Roboto", "label": "Roboto" },
+            { "value": "Open Sans", "label": "Open Sans" }
+          ],
+          "default": "Raleway"
+        }
+      },
+      "layout": {
+        "container_width": {
+          "name": "Container Width",
+          "type": "select",
+          "options": [
+            { "value": "1200px", "label": "Default (1200px)" },
+            { "value": "1140px", "label": "Narrow (1140px)" },
+            { "value": "1320px", "label": "Wide (1320px)" }
+          ],
+          "default": "1200px"
+        },
+        "section_spacing": {
+          "name": "Section Spacing",
+          "type": "select",
+          "options": [
+            { "value": "normal", "label": "Normal" },
+            { "value": "compact", "label": "Compact" },
+            { "value": "spacious", "label": "Spacious" }
+          ],
+          "default": "normal"
+        }
+      },
+      "effects": {
+        "particles": {
+          "name": "Particle Effects",
+          "type": "boolean",
+          "default": true
+        },
+        "animations": {
+          "name": "Scroll Animations",
+          "type": "boolean",
+          "default": true
+        },
+        "typing_effect": {
+          "name": "Typing Effect",
+          "type": "boolean",
+          "default": true
+        }
+      }
+    },
+    "features": [
+      "Responsive design",
+      "Dark theme with purple accents",
+      "Animated particle background",
+      "Smooth scrolling navigation",
+      "Typing effect animation",
+      "GitHub integration support",
+      "Project showcase cards",
+      "Contact form",
+      "Social media links",
+      "SEO optimized",
+      "Fast loading",
+      "Mobile-first approach"
+    ],
+    "technologies": [
+      "HTML5",
+      "CSS3",
+      "JavaScript (ES6+)",
+      "Handlebars templating",
+      "CSS Grid & Flexbox",
+      "CSS Animations",
+      "Intersection Observer API",
+      "Font Awesome icons",
+      "Google Fonts"
+    ],
+    "browser_support": [
+      "Chrome 70+",
+      "Firefox 65+",
+      "Safari 12+",
+      "Edge 79+"
+    ],
+    "performance": {
+      "lighthouse_score": {
+        "performance": 95,
+        "accessibility": 98,
+        "best_practices": 100,
+        "seo": 100
+      },
+      "page_size": "< 500KB",
+      "load_time": "< 2s"
+    },
+    "is_premium": false,
+    "created_at": "2024-01-01",
+    "updated_at": "2024-01-01"
+  }

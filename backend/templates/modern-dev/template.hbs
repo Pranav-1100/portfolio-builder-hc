@@ -1,0 +1,365 @@
+<div class="App">
+  <!-- Navigation -->
+  <nav class="navbar navbar-scrolled">
+    <div class="nav-brand">{{hero.name}}</div>
+    <div class="nav-links">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#about" class="nav-link">About</a>
+      {{#if has_projects}}
+      <a href="#projects" class="nav-link">Projects</a>
+      {{/if}}
+      <a href="#contact" class="nav-link">Contact</a>
+      {{#if hero.resume_url}}
+      <a href="{{hero.resume_url}}" class="nav-link" target="_blank">Resume</a>
+      {{/if}}
+    </div>
+  </nav>
+
+  <!-- Particles Background -->
+  <div class="particles-container">
+    {{#each (range 50)}}
+    <div class="particle" style="left: {{random 0 100}}%; animation-delay: {{random 0 20}}s; animation-duration: {{add (random 10 20) 10}}s;"></div>
+    {{/each}}
+  </div>
+
+  <main>
+    <!-- Home Section -->
+    <section id="home" class="section home-section">
+      <div class="container">
+        <div class="home-content">
+          <div class="home-text">
+            <h1>
+              Hi There! <span class="wave">👋🏻</span>
+            </h1>
+            <h1 class="home-name">
+              I'M <strong class="main-name">{{hero.name}}</strong>
+            </h1>
+            <div class="typewriter-container">
+              <span class="typewriter">{{hero.title}}</span>
+              <span class="cursor">|</span>
+            </div>
+            {{#if hero.bio}}
+            <p class="home-description">{{hero.bio}}</p>
+            {{/if}}
+            <div class="home-buttons">
+              <a href="#contact" class="btn btn-primary">Get In Touch</a>
+              {{#if hero.resume_url}}
+              <a href="{{hero.resume_url}}" class="btn btn-secondary" target="_blank">Download Resume</a>
+              {{/if}}
+            </div>
+          </div>
+          <div class="home-image">
+            <img src="{{#if hero.image}}{{hero.image}}{{else}}https://via.placeholder.com/350{{/if}}" alt="{{hero.name}}" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about-section">
+      <div class="container">
+        <h2 class="section-title">
+          Know Who <strong class="purple">I'M</strong>
+        </h2>
+        <div class="about-content">
+          <div class="about-text">
+            {{#if about.description}}
+            <p>{{about.description}}</p>
+            {{/if}}
+            {{#if about.interests}}
+            <p>Apart from coding, some other activities that I love to do!</p>
+            <ul class="about-activities">
+              {{#each about.interests}}
+              <li>▸ {{this}}</li>
+              {{/each}}
+            </ul>
+            {{/if}}
+            {{#if template_config.quote}}
+            <p class="about-quote">
+              <em>"{{template_config.quote}}"</em>
+            </p>
+            {{/if}}
+          </div>
+        </div>
+        
+        {{#if about.skills}}
+        <h2 class="section-title">
+          Professional <strong class="purple">Skillset</strong>
+        </h2>
+        <div class="tech-stack">
+          {{#each about.skills}}
+          <div class="tech-card">
+            <div class="tech-icon">
+              <i class="fab fa-js-square"></i>
+            </div>
+            <h4>{{this}}</h4>
+            <div class="tech-stats">
+              <div class="stat">
+                <span class="stat-value">2+</span>
+                <span class="stat-label">Years</span>
+              </div>
+              <div class="stat">
+                <span class="stat-value">10+</span>
+                <span class="stat-label">Projects</span>
+              </div>
+            </div>
+            <div class="tech-level">
+              <div class="level-bar">
+                <div class="level-fill" style="width: 85%;"></div>
+              </div>
+              <span class="level-text">85%</span>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+        {{/if}}
+        
+        {{#if github_stats}}
+        <h2 class="section-title">
+          Days I <strong class="purple">Code</strong>
+        </h2>
+        <div class="github-section">
+          <div class="github-calendar">
+            <div class="calendar-container">
+              <div class="calendar-grid">
+                {{#each github_stats.contribution_days}}
+                <div class="calendar-day" style="background-color: {{this.color}};" title="{{this.count}} contributions on {{this.date}}"></div>
+                {{/each}}
+              </div>
+              <div class="calendar-legend">
+                <span>Less</span>
+                <div class="legend-day" style="background-color: #161b22;"></div>
+                <div class="legend-day" style="background-color: #0e4429;"></div>
+                <div class="legend-day" style="background-color: #006d32;"></div>
+                <div class="legend-day" style="background-color: #26a641;"></div>
+                <div class="legend-day" style="background-color: #39d353;"></div>
+                <span>More</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        {{/if}}
+      </div>
+    </section>
+
+    <!-- Projects Section -->
+    {{#if has_projects}}
+    <section id="projects" class="section projects-section">
+      <div class="container">
+        <h2 class="section-title">
+          My Recent <strong class="purple">Works</strong>
+        </h2>
+        <p class="section-subtitle">Here are a few projects I've worked on recently.</p>
+        
+        <div class="projects-grid">
+          {{#each projects}}
+          <div class="project-card">
+            <div class="project-image">
+              <img src="{{#if this.image}}{{this.image}}{{else}}https://via.placeholder.com/400x250{{/if}}" alt="{{this.title}}" />
+              <div class="project-overlay">
+                <div class="project-links">
+                  {{#if this.github_url}}
+                  <a href="{{this.github_url}}" class="project-link" target="_blank">
+                    <i class="fab fa-github"></i>
+                  </a>
+                  {{/if}}
+                  {{#if this.live_url}}
+                  <a href="{{this.live_url}}" class="project-link" target="_blank">
+                    <i class="fas fa-external-link-alt"></i>
+                  </a>
+                  {{/if}}
+                </div>
+              </div>
+            </div>
+            <div class="project-info">
+              <h3>{{this.title}}</h3>
+              <p>{{this.description}}</p>
+              {{#if this.tech_stack}}
+              <div class="project-tags">
+                {{#each this.tech_stack}}
+                <span class="tag">{{this}}</span>
+                {{/each}}
+              </div>
+              {{/if}}
+              <div class="project-buttons">
+                {{#if this.github_url}}
+                <a href="{{this.github_url}}" class="btn btn-small" target="_blank">
+                  GitHub
+                </a>
+                {{/if}}
+                {{#if this.live_url}}
+                <a href="{{this.live_url}}" class="btn btn-small btn-primary" target="_blank">
+                  Live Demo
+                </a>
+                {{/if}}
+              </div>
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </section>
+    {{/if}}
+
+    <!-- Experience Section -->
+    {{#if has_experience}}
+    <section id="experience" class="section experience-section">
+      <div class="container">
+        <h2 class="section-title">
+          Professional <strong class="purple">Experience</strong>
+        </h2>
+        
+        <div class="timeline">
+          {{#each experience}}
+          <div class="timeline-item">
+            <div class="timeline-dot"></div>
+            <div class="timeline-content">
+              <h4>{{this.title}}</h4>
+              <span class="company">{{this.company}} • {{this.period}}</span>
+              <p>{{this.description}}</p>
+              {{#if this.technologies}}
+              <div class="tech-tags">
+                {{#each this.technologies}}
+                <span class="tech-tag">{{this}}</span>
+                {{/each}}
+              </div>
+              {{/if}}
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </section>
+    {{/if}}
+
+    <!-- Education Section -->
+    {{#if has_education}}
+    <section id="education" class="section education-section">
+      <div class="container">
+        <h2 class="section-title">
+          My <strong class="purple">Education</strong>
+        </h2>
+        
+        <div class="education-grid">
+          {{#each education}}
+          <div class="education-card">
+            <div class="education-icon">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <div class="education-info">
+              <h4>{{this.degree}}</h4>
+              <p class="school">{{this.school}}</p>
+              <p class="period">{{this.period}}</p>
+              {{#if this.description}}
+              <p class="description">{{this.description}}</p>
+              {{/if}}
+              {{#if this.gpa}}
+              <p class="gpa">GPA: {{this.gpa}}</p>
+              {{/if}}
+            </div>
+          </div>
+          {{/each}}
+        </div>
+      </div>
+    </section>
+    {{/if}}
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact-section">
+      <div class="container">
+        <h2 class="section-title">Get In <strong class="purple">Touch</strong></h2>
+        <div class="contact-content">
+          <div class="contact-info">
+            <h3>Let's Connect</h3>
+            <p>I'm always open to discussing new opportunities and interesting projects.</p>
+            <div class="contact-details">
+              {{#if contact.email}}
+              <div class="contact-item">
+                <i class="fas fa-envelope"></i>
+                <span>{{contact.email}}</span>
+              </div>
+              {{/if}}
+              {{#if contact.phone}}
+              <div class="contact-item">
+                <i class="fas fa-phone"></i>
+                <span>{{contact.phone}}</span>
+              </div>
+              {{/if}}
+              {{#if contact.location}}
+              <div class="contact-item">
+                <i class="fas fa-map-marker-alt"></i>
+                <span>{{contact.location}}</span>
+              </div>
+              {{/if}}
+            </div>
+            {{#if hero.social_links}}
+            <div class="social-links">
+              {{#if hero.social_links.github}}
+              <a href="{{ensureHttp hero.social_links.github}}" class="social-link" target="_blank">
+                <i class="fab fa-github"></i>
+              </a>
+              {{/if}}
+              {{#if hero.social_links.linkedin}}
+              <a href="{{ensureHttp hero.social_links.linkedin}}" class="social-link" target="_blank">
+                <i class="fab fa-linkedin"></i>
+              </a>
+              {{/if}}
+              {{#if hero.social_links.twitter}}
+              <a href="{{ensureHttp hero.social_links.twitter}}" class="social-link" target="_blank">
+                <i class="fab fa-twitter"></i>
+              </a>
+              {{/if}}
+              {{#if hero.social_links.instagram}}
+              <a href="{{ensureHttp hero.social_links.instagram}}" class="social-link" target="_blank">
+                <i class="fab fa-instagram"></i>
+              </a>
+              {{/if}}
+            </div>
+            {{/if}}
+          </div>
+          <div class="contact-form">
+            <form id="contact-form">
+              <div class="form-group">
+                <label>Name</label>
+                <input type="text" name="name" placeholder="Your Name" required />
+              </div>
+              <div class="form-group">
+                <label>Email</label>
+                <input type="email" name="email" placeholder="Your Email" required />
+              </div>
+              <div class="form-group">
+                <label>Message</label>
+                <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+              </div>
+              <button type="submit" class="btn btn-primary">
+                Send Message
+              </button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer-content">
+        <p>&copy; {{current_year}} {{hero.name}}. Built with Portfolio Builder.</p>
+        {{#if hero.social_links}}
+        <div class="footer-social">
+          {{#if hero.social_links.github}}
+          <a href="{{ensureHttp hero.social_links.github}}" target="_blank"><i class="fab fa-github"></i></a>
+          {{/if}}
+          {{#if hero.social_links.linkedin}}
+          <a href="{{ensureHttp hero.social_links.linkedin}}" target="_blank"><i class="fab fa-linkedin"></i></a>
+          {{/if}}
+          {{#if hero.social_links.twitter}}
+          <a href="{{ensureHttp hero.social_links.twitter}}" target="_blank"><i class="fab fa-twitter"></i></a>
+          {{/if}}
+        </div>
+        {{/if}}
+      </div>
+    </div>
+  </footer>
+</div>
